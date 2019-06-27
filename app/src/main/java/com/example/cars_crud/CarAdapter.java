@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.toolbox.NetworkImageView;
+
 import java.util.List;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
@@ -17,10 +19,12 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
 
     public class CarViewHolder extends RecyclerView.ViewHolder {
         public TextView description;
+        public NetworkImageView giphyImage;
 
         public CarViewHolder(View view) {
             super(view);
             description = (TextView) view.findViewById(R.id.carName);
+            giphyImage = (NetworkImageView) view.findViewById(R.id.giphyImage);
         }
     }
 
