@@ -8,12 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.android.volley.toolbox.NetworkImageView
+        <com.giphy.sdk.ui.views.GifView
             android:id="@+id/giphyImage"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:scaleType="centerCrop"
-            android:layout_marginRight="6dp"/>
+            android:layout_margin="6dp"/>
 
         <TextView
             android:id="@+id/carName"

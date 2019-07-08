@@ -1,6 +1,7 @@
 package com.example.cars_crud;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,22 +10,32 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.toolbox.NetworkImageView;
+import com.giphy.sdk.core.GiphyCore;
+import com.giphy.sdk.core.models.Media;
+import com.giphy.sdk.core.models.enums.RenditionType;
+import com.giphy.sdk.core.network.api.CompletionHandler;
+import com.giphy.sdk.core.network.response.ListMediaResponse;
+import com.giphy.sdk.core.network.response.MediaResponse;
+import com.giphy.sdk.ui.GiphyCoreUI;
+import com.giphy.sdk.ui.views.GifView;
+
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     Context context;
     private List<Car> cars;
+    public static final String giphyapi = "https://media.giphy.com/media/YaOxRsmrv9IeA/giphy.gif";
 
     public class CarViewHolder extends RecyclerView.ViewHolder {
         public TextView description;
-        public NetworkImageView giphyImage;
+        public GifView giphyImage;
 
         public CarViewHolder(View view) {
             super(view);
             description = (TextView) view.findViewById(R.id.carName);
-            giphyImage = (NetworkImageView) view.findViewById(R.id.giphyImage);
+            giphyImage = (GifView) view.findViewById(R.id.giphyImage);
         }
     }
 
@@ -52,8 +63,15 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CarViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CarViewHolder holder, int position) {
         holder.description.setText(cars.get(position).getName());
+        GiphyCore.apiClient.search(cars.get(position).getName(), null, 1, null, null, null, null, new CompletionHandler<ListMediaResponse>() {
+            @Override
+            public void onComplete(@Nullable ListMediaResponse listMediaResponse, @Nullable Throwable throwable) {
+                List<Media> mediaList = listMediaResponse.getData();
+                holder.giphyImage.setMedia(mediaList.get(0), RenditionType.original, Color.WHITE);
+            }
+        });
     }
 
     @Override
