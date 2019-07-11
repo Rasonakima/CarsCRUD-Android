@@ -1,6 +1,7 @@
 package com.example.cars_crud;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,13 +61,22 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CarViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final CarViewHolder holder, final int position) {
         holder.description.setText(cars.get(position).getName());
         GiphyCore.apiClient.search(cars.get(position).getName(), null, 1, null, null, null, null, new CompletionHandler<ListMediaResponse>() {
             @Override
             public void onComplete(@Nullable ListMediaResponse listMediaResponse, @Nullable Throwable throwable) {
                 List<Media> mediaList = listMediaResponse.getData();
                 holder.giphyImage.setMedia(mediaList.get(0), RenditionType.original, Color.WHITE);
+            }
+        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = holder.itemView.getContext();
+                Intent intent = new Intent(context, CarEditActivity.class);
+                intent.putExtra("CarID", cars.get(position).getId());
+                context.startActivity(intent);
             }
         });
     }
