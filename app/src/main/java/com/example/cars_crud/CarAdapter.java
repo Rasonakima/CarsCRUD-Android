@@ -15,8 +15,6 @@ import com.giphy.sdk.core.models.Media;
 import com.giphy.sdk.core.models.enums.RenditionType;
 import com.giphy.sdk.core.network.api.CompletionHandler;
 import com.giphy.sdk.core.network.response.ListMediaResponse;
-import com.giphy.sdk.core.network.response.MediaResponse;
-import com.giphy.sdk.ui.GiphyCoreUI;
 import com.giphy.sdk.ui.views.GifView;
 
 import org.jetbrains.annotations.Nullable;
@@ -26,7 +24,6 @@ import java.util.List;
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     Context context;
     private List<Car> cars;
-    public static final String giphyapi = "https://media.giphy.com/media/YaOxRsmrv9IeA/giphy.gif";
 
     public class CarViewHolder extends RecyclerView.ViewHolder {
         public TextView description;
