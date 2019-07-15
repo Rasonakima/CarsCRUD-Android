@@ -100,4 +100,11 @@ public class MainActivity extends AppCompatActivity {
 
         VolleySingleton.getInstance(this).addToRequestQueue(jsonArrayRequest);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, "Refreshing", Toast.LENGTH_SHORT).show();
+        sendRequest();
+    }
 }

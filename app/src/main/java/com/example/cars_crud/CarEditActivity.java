@@ -46,6 +46,12 @@ public class CarEditActivity extends AppCompatActivity {
         getCar(getIntent().getLongExtra("CarID", 0));
 
         editBtn = (Button) findViewById(R.id.editBtn);
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editCar(getIntent().getLongExtra("CarID", 0));
+            }
+        });
 
         cancelBtn = (Button) findViewById(R.id.cancelBtn);
         cancelBtn.setOnClickListener(new View.OnClickListener() {
