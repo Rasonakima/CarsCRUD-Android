@@ -34,17 +34,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancelBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:text="Cancel"/>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/editBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                 style="@style/Widget.MaterialComponents.Button"
-                android:text="Add"/>
+                android:text="Edit"/>
 
         </LinearLayout>
 
@@ -53,6 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
+            android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"/>
 
     </LinearLayout>
