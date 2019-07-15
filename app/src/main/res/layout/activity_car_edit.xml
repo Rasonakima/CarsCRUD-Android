@@ -35,21 +35,30 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/cancelBtn"
+                android:id="@+id/editBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="6dp"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:text="Cancel"/>
+                android:text="Edit"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/editBtn"
+                android:id="@+id/deleteBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="6dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                style="@style/Widget.MaterialComponents.Button"
+                android:text="Delete"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancelBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-                style="@style/Widget.MaterialComponents.Button"
-                android:text="Edit"/>
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:text="Cancel"/>
 
         </LinearLayout>
 
