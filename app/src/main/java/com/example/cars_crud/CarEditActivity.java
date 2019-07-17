@@ -38,7 +38,7 @@ public class CarEditActivity extends AppCompatActivity {
     Car car;
     EditText editText;
     GifView gifView;
-    Button editBtn,deleteBtn, cancelBtn;
+    Button editBtn, deleteBtn, cancelBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +108,7 @@ public class CarEditActivity extends AppCompatActivity {
         VolleySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
 
-    private void deleteCar(Long id){
+    private void deleteCar(Long id) {
         BooleanRequest booleanRequest = new BooleanRequest(Request.Method.DELETE, MainActivity.carApi + "/" + id, null, new Response.Listener<Boolean>() {
             @Override
             public void onResponse(Boolean response) {
